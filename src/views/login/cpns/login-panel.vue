@@ -44,11 +44,12 @@ export default defineComponent({
 
     // 2.定义方法
     const handleLoginClick = () => {
+      // console.log(currentTab.value)
       if (currentTab.value === 'account') {
         accountRef.value?.loginAction(isKeepPassword.value)
         // console.log('点击登入', accountRef.value)
-      } else {
-        console.log('phoneRef调用loginAction')
+      } else if (currentTab.value === 'phone') {
+        phoneRef.value?.phoneloginAction(isKeepPassword.value)
       }
     }
 

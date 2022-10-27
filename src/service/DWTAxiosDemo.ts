@@ -9,7 +9,7 @@ dwtRequest
   .request<DataType>({
     url: '/home/multidata',
     method: 'GET',
-    showLoading: false,
+    showLoading: false, //控制loding显示
     interceptors: {
       requestInterceptor: (config) => {
         // console.log('单独请求的config')

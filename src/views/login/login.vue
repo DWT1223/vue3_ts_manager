@@ -1,12 +1,7 @@
 // eslint-disable-next-line vue/multi-word-component-names
 <template>
-  <div>
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+  <div class="login">
+    login
   </div>
 </template>
 <script lang="ts" setup name="MyLogin">
@@ -16,7 +11,6 @@ import { onMounted } from 'vue'
 
 // ------------------钩子函数----------------------------
 // 初始化
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 onMounted(() => {})
 
 // ------------------定义子组件--------------------------
@@ -25,4 +19,13 @@ onMounted(() => {})
 
 // ------------------方法区------------------------------
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url('@/assets/img/login-bg.svg');
+}
+</style>

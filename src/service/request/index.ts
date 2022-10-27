@@ -27,7 +27,7 @@ class DWTRequest {
     )
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有实例共同的拦截器：请求成功拦截')
+        // console.log('所有实例共同的拦截器：请求成功拦截')
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -38,17 +38,16 @@ class DWTRequest {
         return config
       },
       (err) => {
-        console.log('所有实例共同的拦截器：请求失败拦截')
+        // console.log('所有实例共同的拦截器：请求失败拦截')
         return err
       }
     )
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有实例共同的拦截器：响应成功拦截')
+        // console.log('所有实例共同的拦截器：响应成功拦截')
         //移除loading
-        this.loading?.close(3000)
-
+        this.loading?.close()
         const data = res.data
         if (data.returnCode === '-1001') {
           console.log('请求失败~, 错误信息')
@@ -57,10 +56,10 @@ class DWTRequest {
         }
       },
       (err) => {
-        console.log('所有实例共同的拦截器：响应失败拦截')
+        // console.log('所有实例共同的拦截器：响应失败拦截')
         // 例子: 判断不同的HttpErrorCode显示不同的错误信息
         //移除loading
-        this.loading?.close(3000)
+        this.loading?.close()
         if (err.response.status === 404) {
           console.log('404的错误~')
         }
@@ -109,9 +108,11 @@ class DWTRequest {
   delete<T = any>(config: DWTRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
+
   put<T = any>(config: DWTRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PUT' })
   }
+
   patch<T = any>(config: DWTRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }

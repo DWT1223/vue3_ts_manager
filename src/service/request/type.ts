@@ -5,6 +5,7 @@ export interface DWTRequestInterceptors<T = AxiosResponse> {
   requestInterceptorCatch?: (error: any) => any
   responseInterceptor?: (res: T) => T
   responseInterceptorCatch?: (error: any) => any
+  headers?: any
 }
 
 export interface DWTRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {

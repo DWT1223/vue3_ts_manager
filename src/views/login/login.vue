@@ -1,23 +1,25 @@
-// eslint-disable-next-line vue/multi-word-component-names
+<!--  -->
 <template>
   <div class="login">
-    login
+    <login-panel />
   </div>
 </template>
-<script lang="ts" setup name="MyLogin">
-// ------------------接收传入参数(组件)-------------------
+<script lang="ts">
+import { defineComponent, reactive, toRefs } from 'vue'
+import LoginPanel from './cpns/login-panel.vue'
 
-import { onMounted } from 'vue'
-
-// ------------------钩子函数----------------------------
-// 初始化
-onMounted(() => {})
-
-// ------------------定义子组件--------------------------
-
-// ------------------变量区------------------------------
-
-// ------------------方法区------------------------------
+export default defineComponent({
+  name: 'Login',
+  components: { LoginPanel },
+  props: {},
+  setup() {
+    const data = reactive({})
+    const refData = toRefs(data)
+    return {
+      ...refData
+    }
+  }
+})
 </script>
 <style lang="less" scoped>
 .login {

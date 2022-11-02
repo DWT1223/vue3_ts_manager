@@ -34,7 +34,9 @@ import {
   ElImage,
   ElDialog,
   ElTree,
-  ElCard
+  ElCard,
+  ElSubMenu,
+  ElIcon
 } from 'element-plus'
 
 const components = [
@@ -53,6 +55,7 @@ const components = [
   ElAside,
   ElMenu,
   ElMenuItem,
+  ElSubMenu,
   ElMenuItemGroup,
   ElDropdown,
   ElDropdownMenu,
@@ -71,7 +74,8 @@ const components = [
   ElImage,
   ElDialog,
   ElTree,
-  ElCard
+  ElCard,
+  ElIcon
 ]
 
 export default function (app: App): void {

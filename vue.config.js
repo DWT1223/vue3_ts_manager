@@ -19,7 +19,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        components: '@/components'
+        components: '@/components',
+        '@': path.resolve(__dirname, 'src')
       }
     }
   }

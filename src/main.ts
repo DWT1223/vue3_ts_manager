@@ -14,6 +14,8 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-
-createApp(App).use(router).use(store).use(globalRegister).mount('#app')
+app.use(globalRegister)
+app.use(store)
 setupStore()
+app.use(router)
+app.mount('#app')

@@ -1,5 +1,5 @@
 <template>
-  <div class="hy-form">
+  <div class="dwt-form">
     <el-form :label-width="labelWidth">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
@@ -73,7 +73,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="less">
-.hy-form {
+.dwt-form {
   padding-top: 22px;
 }
 </style>

@@ -9,6 +9,7 @@ import {
 import { IAccount } from '@/service/login/types'
 import LocalCache from '@/utils/cache'
 import router from '@/router'
+import { mapMenusToRoutes } from '@/utils/map-menus'
 
 const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -22,16 +23,20 @@ const loginModule: Module<ILoginState, IRootState> = {
   getters: {},
   mutations: {
     changeToken(state, token: string) {
-      // console.log(token)
-
       state.token = token
     },
     changeUserInfo(state, userInfo: any) {
-      // console.log(userInfo)
       state.userInfo = userInfo
     },
     changeUserMenu(state, userMenus: any) {
       state.userMenus = userMenus
+      // userMenus => routes
+      const routes = mapMenusToRoutes(userMenus)
+
+      // 将routes => router.main.children
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
     }
   },
   actions: {

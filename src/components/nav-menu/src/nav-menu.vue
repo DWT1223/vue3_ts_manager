@@ -25,7 +25,7 @@
             </template>
             <!-- 遍历里面的item -->
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item :index="subitem.id + ''" @click="handleMenuItemClick(subitem)">
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
             </template>
@@ -47,6 +47,7 @@
 import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
 import { Monitor, Setting, Goods, ChatLineRound } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   components: { Monitor, Setting, Goods, ChatLineRound },
@@ -58,6 +59,13 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+
+    const router = useRouter()
+    const handleMenuItemClick = (item: any) => {
+      router.push({
+        path: item.url
+      })
+    }
     const userMenus = computed(() => store.state.login.userMenus)
     userMenus.value.map((item: any) => {
       switch (item.id) {
@@ -76,7 +84,8 @@ export default defineComponent({
       }
     })
     return {
-      userMenus
+      userMenus,
+      handleMenuItemClick
     }
   }
 })
